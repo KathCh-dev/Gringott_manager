@@ -13,7 +13,7 @@ class Client
 
 
     //Création des getters pour avoir accès aux informations privées de la classe
-    public function getId(): int
+    public function getClientId(): int
     {
         return $this->id;
     }
@@ -33,7 +33,7 @@ class Client
         return $this->clientMail;
     }
 
-    public function getClientAdress(): string
+    public function getClientAddress(): string
     {
         return $this->clientAdress;
     }
@@ -63,7 +63,7 @@ class Client
     {
         $this->clientMail = $clientMail;
     }
-    public function setClientAdress(string $clientAdress): void
+    public function setClientAddress(string $clientAdress): void
     {
         $this->clientAdress = $clientAdress;
     }

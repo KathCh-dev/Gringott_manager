@@ -1,14 +1,43 @@
 <?php
-require_once __DIR__ . '/lib/database.php';
-require_once __DIR__ . '/models/repositories/clientRepository.php';
+require_once __DIR__ . '/views/templates/header.php';
+require_once __DIR__ . '/controlers/clientController.php';
+require_once __DIR__ . '/controlers/homeController.php';
 
-$clientRepo = new ClientRepository();
+$clientController = new ClientController();
+$homeController = new HomeController();
 
-$client = new Client();
-$client->lastName = 'NomDeFamille';
-$client->name = 'Prénom';
-$client->mail = 'mail@mail.fr';
-$client->adress = 'Je vis là';
-$client->phone = '0606060606';
+$action = $_GET['action'] ?? 'viewHome';
+$id = $_GET['id'] ?? null;
 
-var_dump($client);
+switch($action){
+    case 'viewHome':
+        $homeController->home();
+        break;
+    case 'viewClient':
+        $clientController->showClient($id);
+        break;
+    case 'createClient':
+        $clientController->createClient();
+        break;
+    case 'homeClients':
+        $clientController->showClients();
+        break;
+    case 'storeClient':
+        $clientController->storeClient();
+        break;
+    case 'editClient':
+        $clientController->editClient($id);
+        break;
+    case 'updateClient':
+        $clientController->updateClient();
+        break;
+    case 'deleteClient':
+        $clientController->deleteClient($id);
+        break;
+    default:
+        $homeController->notFound();
+        break;
+    
+}
+
+require_once __DIR__ . '/views/templates/footer.php';

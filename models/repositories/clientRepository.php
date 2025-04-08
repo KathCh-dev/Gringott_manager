@@ -19,7 +19,9 @@ class ClientRepository
     {
         $statement = $this->connection->getConnection()->query('SELECT * FROM clients');
         $result = $statement->fetchAll();
-        $clients=[];
+        $clients = [];
+
+    
 
         foreach($result as $row){
             $client = new Client();
@@ -27,17 +29,18 @@ class ClientRepository
             $client->setClientLastName($row['Client_LastName']);
             $client->setClientName($row['Client_Name']);
             $client->setClientMail($row['Client_Mail']);
-            $client->setClientAdress($row['Client_Adress']);
+            $client->setClientAddress($row['Client_Adress']);
             $client->setClientPhone($row['Client_Phone']);
             $clients[] = $client;
         }
+
         return $clients;
     }
 
     //Récupération des données d'un client et affichage sous forme de tableau
     public function getClient(int $id): ?Client
     {
-        $statement = $this->connection->getConnection()->prepare('SELECT * FROM clients WHERE id=:id');
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM clients WHERE client_Id=:id');
         $statement->execute(['id' => $id]);
         $result = $statement->fetch();
 
@@ -46,11 +49,11 @@ class ClientRepository
         }
 
         $client = new Client();
-        $client->setClientId($result['Clinet_ID']);
+        $client->setClientId($result['Client_ID']);
         $client->setClientLastName($result['Client_LastName']);
         $client->setClientName($result['Client_Name']);
         $client->setClientMail($result['Client_Mail']);
-        $client->setClientAdress($result['Client_Adress']);
+        $client->setClientAddress($result['Client_Adress']);
         $client->setClientPhone($result['Client_Phone']);
         return $client;
     }
@@ -58,13 +61,13 @@ class ClientRepository
     //Création du CRUD client
     //Création d'un client
     public function createClient(Client $client): bool{
-        $statement = $this->connection->getConnection()->prepare('INSERT INTO clients (lastName ,name, mail, adress, phone)');
+        $statement = $this->connection->getConnection()->prepare('INSERT INTO clients (lastName ,name, mail, address, phone)');
 
         return $statement->execute([
             'lastName' => $client->getClientLastName(),
             'name' => $client->getClientName(),
             'mail' => $client->getClientMail(),
-            'adress' => $client->getClientAdress(),
+            'address' => $client->getClientAddress(),
             'phone' => $client->getClientPhone()
         ]);
     }
@@ -72,14 +75,14 @@ class ClientRepository
     //Mise à jour des informations d'un client
     public function updateClient(Client $client): bool
     {
-        $statement = $this->connection->getConnection()->prepare('UPDATE clients SET lastName = :lastName, name = :name, mail = :mail, adress = :adress, phone = :phone WERE id = :id');
+        $statement = $this->connection->getConnection()->prepare('UPDATE clients SET lastName = :lastName, name = :name, mail = :mail, address = :address, phone = :phone WERE id = :id');
 
         return $statement->execute([
-            'id' => $client->getId(),
+            'id' => $client->getClientId(),
             'lastName' => $client->getClientLastName(),
             'name' => $client->getClientName(),
             'mail' => $client->getClientMail(),
-            'adress' => $client->getClientAdress(),
+            'address' => $client->getClientAddress(),
             'phone' => $client->getClientPhone(),
         ]);
     }
@@ -92,4 +95,5 @@ class ClientRepository
 
         return $statement->execute();
     }
+
 }
