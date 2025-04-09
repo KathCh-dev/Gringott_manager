@@ -6,8 +6,8 @@
 
         <h2> 📋 Liste récapitulative de votre portfeuille clientèle : </h2><br>
         
-        <table>
-            <thead>
+        <table class="table table-striped table-bordered">
+            <thead  class="table-dark">
                 <tr>
                     <th>Nombre de clients inscrits :</th>
                     <th>Nombre de comptes ouverts :</th>

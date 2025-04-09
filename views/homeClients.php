@@ -7,8 +7,8 @@
         <h2>📋 Liste des clients</h2>
         
         
-        <table>
-            <thead>
+        <table class="table table-striped table-bordered">
+            <thead  class="table-dark">
                 <tr>
                     <th>ID client :</th>
                     <th>Nom et prénom :</th>

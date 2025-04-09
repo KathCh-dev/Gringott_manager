@@ -12,6 +12,8 @@
     <body>
         <main  style="padding: 10%">
             <h2 class="mb-4">⛔️ VOUS N'AVEZ PAS LES DROITS POUR ACCEDER A CETTE PAGE</h2>
+            <br>
+            <img src="images/Password.gif" alt="Image animée de la Grosse Dame qui demande le mot de passe.">
         </main>
     </body>
 
