@@ -4,7 +4,9 @@
     
     <main style="padding: 10%">
 
-        <h2> 📋 Liste récapitulative de votre portfeuille clientèle : </h2><br>
+        <h2> 📋 Liste récapitulative de votre portfeuille clientèle : </h2>
+        
+        <br>
         
         <table class="table table-striped table-bordered">
             <thead  class="table-dark">

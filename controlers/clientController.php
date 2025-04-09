@@ -33,14 +33,14 @@ class ClientController
     public function storeClient()
     {
         $client = new Client();
-        $client->setClientLastName($_POST['lastName']);
-        $client->setClientName($_POST['name']);
-        $client->setClientAddress($_POST['address']);
-        $client->setClientMail($_POST['mail']);
-        $client->getClientPhone()($_POST['phone']);
+        $client->setClientLastName($_POST['Client_LastName']);
+        $client->setClientName($_POST['Client_Name']);
+        $client->setClientAddress($_POST['Client_Address']);
+        $client->setClientMail($_POST['Client_Mail']);
+        $client->setClientPhone($_POST['Client_Phone']);
         $this->clientRepository->createClient($client);
 
-        header('Location: ?');
+        header('Location: ?action=homeClients');
         exit;
     }
 
@@ -53,19 +53,23 @@ class ClientController
     public function updateClient()
     {
         $client = new Client();
-        $client->setClientLastName($_POST['lastName']);
-        $client->setClientName($_POST['name']);
-        $client->setClientAddress($_POST['address']);
-        $client->setClientMail($_POST['mail']);
-        $client->getClientPhone()($_POST['phone']);
+        $client->setClientId($_POST['id']);
+        $client->setClientLastName($_POST['Client_LastName']);
+        $client->setClientName($_POST['Client_Name']);
+        $client->setClientAddress($_POST['Client_Address']);
+        $client->setClientMail($_POST['Client_Mail']);
+        $client->setClientPhone($_POST['Client_Phone']);
         $this->clientRepository->updateClient($client);
+
+        header('Location: ?action=viewClient&id=' . $client->getClientId());
+        exit;
     }
     
     public function deleteClient(int $id)
     {
         $this->clientRepository->deleteClient($id);
 
-        header('Location: ?');
+        header('Location: ?action=homeClients');
         exit;
     }
 

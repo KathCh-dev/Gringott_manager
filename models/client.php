@@ -8,7 +8,7 @@ class Client
     private string $clientName;
     private string $clientLastName;
     private string $clientMail;
-    private string $clientAdress;
+    private string $clientAddress;
     private string $clientPhone;
 
 
@@ -35,7 +35,7 @@ class Client
 
     public function getClientAddress(): string
     {
-        return $this->clientAdress;
+        return $this->clientAddress;
     }
 
     public function getClientPhone(): string
@@ -63,9 +63,9 @@ class Client
     {
         $this->clientMail = $clientMail;
     }
-    public function setClientAddress(string $clientAdress): void
+    public function setClientAddress(string $clientAddress): void
     {
-        $this->clientAdress = $clientAdress;
+        $this->clientAddress = $clientAddress;
     }
     public function setClientPhone(string $clientPhone): void
     {

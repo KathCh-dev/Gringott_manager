@@ -29,7 +29,7 @@ class ClientRepository
             $client->setClientLastName($row['Client_LastName']);
             $client->setClientName($row['Client_Name']);
             $client->setClientMail($row['Client_Mail']);
-            $client->setClientAddress($row['Client_Adress']);
+            $client->setClientAddress($row['Client_Address']);
             $client->setClientPhone($row['Client_Phone']);
             $clients[] = $client;
         }
@@ -53,45 +53,50 @@ class ClientRepository
         $client->setClientLastName($result['Client_LastName']);
         $client->setClientName($result['Client_Name']);
         $client->setClientMail($result['Client_Mail']);
-        $client->setClientAddress($result['Client_Adress']);
+        $client->setClientAddress($result['Client_Address']);
         $client->setClientPhone($result['Client_Phone']);
         return $client;
     }
 
     //Création du CRUD client
     //Création d'un client
-    public function createClient(Client $client): bool{
-        $statement = $this->connection->getConnection()->prepare('INSERT INTO clients (lastName ,name, mail, address, phone)');
+    public function createClient(Client $client): bool
+    {
+        $statement = $this->connection->getConnection()->prepare('INSERT INTO clients (Client_LastName, Client_Name, Client_Mail, Client_Address, Client_Phone)
+        VALUES (:Client_LastName, :Client_Name, :Client_Mail, :Client_Address, :Client_Phone)'
+   );
 
         return $statement->execute([
-            'lastName' => $client->getClientLastName(),
-            'name' => $client->getClientName(),
-            'mail' => $client->getClientMail(),
-            'address' => $client->getClientAddress(),
-            'phone' => $client->getClientPhone()
+            'Client_LastName' => $client->getClientLastName(),
+            'Client_Name' => $client->getClientName(),
+            'Client_Address' => $client->getClientAddress(),
+            'Client_Mail' => $client->getClientMail(),
+            'Client_Phone' => $client->getClientPhone()
         ]);
     }
 
     //Mise à jour des informations d'un client
     public function updateClient(Client $client): bool
     {
-        $statement = $this->connection->getConnection()->prepare('UPDATE clients SET lastName = :lastName, name = :name, mail = :mail, address = :address, phone = :phone WERE id = :id');
+        $statement = $this->connection->getConnection()->prepare('UPDATE clients SET Client_LastName = :Client_LastName, Client_Name = :Client_Name, Client_Mail = :Client_Mail, Client_Address = :Client_Address, Client_Phone = :Client_Phone WHERE Client_Id = :Client_Id');
 
         return $statement->execute([
-            'id' => $client->getClientId(),
-            'lastName' => $client->getClientLastName(),
-            'name' => $client->getClientName(),
-            'mail' => $client->getClientMail(),
-            'address' => $client->getClientAddress(),
-            'phone' => $client->getClientPhone(),
+            'Client_Id' => $client->getClientId(),
+            'Client_LastName' => $client->getClientLastName(),
+            'Client_Name' => $client->getClientName(),
+            'Client_Mail' => $client->getClientMail(),
+            'Client_Address' => $client->getClientAddress(),
+            'Client_Phone' => $client->getClientPhone(),
+
+
         ]);
     }
 
     //Effacement des données d'un client
     public function deleteClient(int $id): bool
     {
-        $statement = $this->connection->getConnection()->prepare('DELETE FROM Clients WHERE id = :id');
-        $statement->bindParam(':id', $id);
+        $statement = $this->connection->getConnection()->prepare('DELETE FROM clients WHERE Client_Id = :Client_Id');
+        $statement->bindParam(':Client_Id', $id);
 
         return $statement->execute();
     }
