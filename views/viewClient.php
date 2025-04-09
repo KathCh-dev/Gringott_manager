@@ -1,17 +1,25 @@
+<?php require_once __DIR__ . '/../views/templates/header.php'; ?>
 
+<body>
 
-<h2> 📋 Détail de la fiche client </h2>
+    <main style="padding: 10%">
 
-<p><strong> Nom complet : </strong> <br> <?= $client->getClientLastName() . " " . $client->getClientName() ?></p>
-<p><strong> Adresse : </strong> <br> <?= $client->getClientAddress() ?></p>
-<p><strong> Mail : </strong> <br> <?= $client->getClientMail() ?></p>
-<p><strong> Téléphone : </strong> <br> <?= $client->getClientPhone() ?></p>
+        <h2> 📋 Détail de la fiche client </h2>
+        
+        <p><strong> Nom complet : </strong> <br> <?= $client->getClientLastName() . " " . $client->getClientName() ?></p>
+        <p><strong> Adresse : </strong> <br> <?= $client->getClientAddress() ?></p>
+        <p><strong> Mail : </strong> <br> <?= $client->getClientMail() ?></p>
+        <p><strong> Téléphone : </strong> <br> <?= $client->getClientPhone() ?></p>
+        
+        <br>
+        
+        <p><strong> Actions :</strong> <br> </p>
+        ✏️ Modifier <br>
+        <br>
+        ❌ Supprimer <br>
 
-<br>
+    </main>
+    
+</body>
 
-<p><strong> Actions :</strong> <br> </p>
-✏️ Modifier <br>
-<br>
-❌ Supprimer <br>
-
-
+<?php require_once __DIR__ . '/../views/templates/footer.php'; ?>

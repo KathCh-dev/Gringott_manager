@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gringott Management</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/style.css" rel="stylesheet">
     </head>
 
     <body>
         <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="?">
-                    <img src="images/logo-Gringott.png"  alt="Logo Gringott" width="150" height="150" class="d-inline-block align-text-top">
+                    <img src="images/logo-Gringott.png" alt="Logo de la banque Gringott." width="150" height="150" class="d-inline-block align-text-top" id="logo-gringott">
                 </a>
                 <div class="" id="navbarNav">
                 <ul class="nav justify-content-end">
