@@ -4,7 +4,7 @@
     
     <main style="padding: 10%">
 
-        <h2>✏️ Modifier une la fiche client</h2>
+        <h2>✏️ Modifier la fiche client</h2>
 
         <br>
         

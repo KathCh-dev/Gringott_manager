@@ -20,7 +20,7 @@
                         <a class="navbar-brand mb-0 h1" href="?action=homeClients" style="color: #B67C3C">📋 Gestion des clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand mb-0 h1" href="" style="color: #B67C3C">📋 Gestion des comptes</a>
+                        <a class="navbar-brand mb-0 h1" href="?action=homeAccounts" style="color: #B67C3C">📋 Gestion des comptes</a>
                     </li>
                     <li class="nav-item">
                         <a class="navbar-brand mb-0 h1" href="" style="color: #B67C3C">📋 Gestion des contrats</a>
@@ -29,7 +29,7 @@
                         <a class="navbar-brand mb-0 h1" href="?action=createClient" style="color: #B67C3C">⊕ Nouveaux clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand mb-0 h1" href="" style="color: #B67C3C">⊕ Nouveaux comptes</a>
+                        <a class="navbar-brand mb-0 h1" href="?action=createAccount" style="color: #B67C3C">⊕ Nouveaux comptes</a>
                     </li>
                     <li class="nav-item">
                         <a class="navbar-brand mb-0 h1" href="" style="color: #B67C3C">⊕ Nouveaux contrats</a>

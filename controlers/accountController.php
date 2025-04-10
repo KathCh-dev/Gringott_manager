@@ -22,11 +22,12 @@ class AccountController
     {
         $account = $this->accountRepository->getAccount($id);
         require_once __DIR__ . '/../views/viewAccount.php';
+
     }
 
     public function createAccount()
     {
-        require_once __DIR__ . '../views/createAccount.php';
+        require_once __DIR__ . '/../views/createAccount.php';
     }
 
     public function storeAccount()
@@ -36,8 +37,9 @@ class AccountController
         $account->setAccountType($_POST['Account_Type']);
         $account->setAccountInit($_POST['Account_Init']);
         $account->setAccountBalance($_POST['Account_Balance']);
+        $account->setClientId($_POST['Client_ID']);
 
-        header('Location: ?action=viewClient&id=' . $account->getClientId());
+        header('Location: ?action=viewAccounts');
         exit;
     }
 
@@ -50,13 +52,15 @@ class AccountController
     public function updateAccount()
     {
         $account = new Account();
-        $account->setAccountId($_POST['id']);
+        $account->setAccountId($_POST['Account_ID']);
         $account->setAccountRib($_POST['RIB']);
         $account->setAccountType($_POST['Account_Type']);
         $account->setAccountInit($_POST['Account_Init']);
         $account->setAccountBalance($_POST['Account_Balance']);
+        $this->accountRepository->updateAccount($account);
+
         
-        header('Location: ?action=viewClient&id=' . $account->getClientId());
+        header('Location: ?action=viewAccounts');
         exit;
     }
 

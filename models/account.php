@@ -17,7 +17,7 @@ class Account
         return $this->id;
    }
 
-   public function getClientId(): int
+   public function getClientById(): int
    {
         return $this->clientId;
    }

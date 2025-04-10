@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../lib/database.php';
 require_once __DIR__ . '/../account.php';
-require_once __DIR__ . '../client.php';
+require_once __DIR__ . '/../client.php';
 
 //Création de la classe
 class AccountRepository
@@ -39,8 +39,8 @@ class AccountRepository
     //Récupération des données d'un compte et affichage sous forme de tableau
     public function getAccount(int $id): ?Account 
     {
-        $statement = $this->connection->getConnection()->prepare('SELECT * FROM accounts WHERE Account_ID=:id');
-        $statement->execute(['id' => $id]);
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM accounts WHERE Account_ID=:Account_ID');
+        $statement->execute(['Account_ID' => $id]);
         $result = $statement->fetch();
 
         if(!$result){
@@ -57,6 +57,26 @@ class AccountRepository
         return $account;
     }
 
+    public function getAccountByClientId(int $clientId)
+    {
+        $statement = $this->connection->getConnection()->prepare('SELECT * FROM accounts WHERE Client_ID=:Client_ID');
+        $statement->execute(['Client_ID' =>$clientId]);
+        $result = $statement->fetchAll();
+        $accounts = [];
+
+        foreach($result as $row){
+            $account = new Account();
+            $account->setAccountId($row['Account_ID']);
+            $account->setAccountRib($row['RIB']);
+            $account->setAccountType($row['Account_Type']);
+            $account->setAccountInit($row['Account_Init']);
+            $account->setAccountBalance($row['Account_Balance']);
+            $account->setClientId($row['Client_ID']);
+            $accounts[] = $account;
+        }
+        return $accounts;
+    }
+
     //Création du CRUD compte
     //Création d'un compte
     public function createAccount(Account $account): bool
@@ -68,7 +88,7 @@ class AccountRepository
             'Account_Type' => $account->getAccountType(),
             'Account_Init' => $account->getAccountInit(),
             'Account_Balance' => $account->getAccountBalance(),
-            'Client_ID' => $account->getClientId()
+            'Client_ID' => $account->getClientById()
         ]);
     }
 
@@ -83,7 +103,7 @@ class AccountRepository
             'Account_Type' => $account->getAccountType(),
             'Account_Init' => $account->getAccountInit(),
             'Account_Balance' => $account->getAccountBalance(),
-            'Client_ID' => $account->getClientId()
+            'Client_ID' => $account->getClientById()
         ]);
     }
 
