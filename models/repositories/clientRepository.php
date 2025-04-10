@@ -21,8 +21,6 @@ class ClientRepository
         $result = $statement->fetchAll();
         $clients = [];
 
-    
-
         foreach($result as $row){
             $client = new Client();
             $client->setClientId($row['Client_ID']);
@@ -63,8 +61,7 @@ class ClientRepository
     public function createClient(Client $client): bool
     {
         $statement = $this->connection->getConnection()->prepare('INSERT INTO clients (Client_LastName, Client_Name, Client_Mail, Client_Address, Client_Phone)
-        VALUES (:Client_LastName, :Client_Name, :Client_Mail, :Client_Address, :Client_Phone)'
-   );
+        VALUES (:Client_LastName, :Client_Name, :Client_Mail, :Client_Address, :Client_Phone)');
 
         return $statement->execute([
             'Client_LastName' => $client->getClientLastName(),
@@ -87,8 +84,6 @@ class ClientRepository
             'Client_Mail' => $client->getClientMail(),
             'Client_Address' => $client->getClientAddress(),
             'Client_Phone' => $client->getClientPhone(),
-
-
         ]);
     }
 
