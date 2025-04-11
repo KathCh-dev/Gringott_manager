@@ -18,7 +18,7 @@ class ClientRepository
     public function getClients(): array
     {
         $statement = $this->connection->getConnection()->query('SELECT * FROM clients');
-        $result = $statement->fetchAll();
+        $result = $statement->fetchAll(); 
         $clients = [];
 
         foreach($result as $row){

@@ -31,6 +31,9 @@
                 <label for="Account_Balance" class="form-label"><strong>Solde actuel : </strong></label><br>
                     <input type="text" class="form-control" id="Account_Balance" name="Account_Balance" value="<?= $account->getAccountBalance() ?>" required>
             </div>
+                <label for="Client_ID" class="form-label"><strong>ID client : </strong></label><br>
+                    <input type="text" class="form-control" id="Client_ID" name="Client_ID" value="<?= $account->getClientById() ?>" readonly>
+            </div>
                 
                 <br>
                 

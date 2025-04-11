@@ -38,8 +38,9 @@ class AccountController
         $account->setAccountInit($_POST['Account_Init']);
         $account->setAccountBalance($_POST['Account_Balance']);
         $account->setClientId($_POST['Client_ID']);
+        $this->accountRepository->createAccount($account);
 
-        header('Location: ?action=viewAccounts');
+        header('Location: ?action=homeAccounts');
         exit;
     }
 
@@ -57,10 +58,10 @@ class AccountController
         $account->setAccountType($_POST['Account_Type']);
         $account->setAccountInit($_POST['Account_Init']);
         $account->setAccountBalance($_POST['Account_Balance']);
+        $account->setClientId($_POST['Client_ID']);
         $this->accountRepository->updateAccount($account);
 
-        
-        header('Location: ?action=viewAccounts');
+        header('Location: ?action=viewAccount&id=' . $account->getAccountId());
         exit;
     }
 

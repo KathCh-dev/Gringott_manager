@@ -5,11 +5,11 @@ require_once __DIR__ . '/../models/client.php';
 
 class ClientController
 {
-    private ClientRepository $clientRepository;
+    private ClientRepository $clientRepository; //attribut ou propriété de la class ClientController qui a le type ClientRepository
 
     public function __construct()
     {
-        $this->clientRepository = new ClientRepository();
+        $this->clientRepository = new ClientRepository();// La propriété $this->clientRepository se fait assignée le nouvel objet de type ClientRepository
     }
 
     public function showClients()

@@ -13,7 +13,7 @@
                 <tr>
                     <th>Nombre de clients inscrits :</th>
                     <th>Nombre de comptes ouverts :</th>
-                    <th>Nombre de contrat souscrits :</th>
+                    <th>Nombre de contrats souscrits :</th>
                 </tr>
             </thead>
             <tbody>

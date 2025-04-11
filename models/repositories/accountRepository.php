@@ -95,7 +95,7 @@ class AccountRepository
     //Mise à jour des informations de compte
     public function updateAccount(Account $account): bool
     {
-        $statement = $this->connection->getConnection()->prepare('UPDATE accounts SET RIB = :RIB, Account_Type = :Account_Type, Account_Init = :Account_Init, Account_Balance = :Account_Balance, Client_ID = :Client_ID');
+        $statement = $this->connection->getConnection()->prepare('UPDATE accounts SET RIB = :RIB, Account_Type = :Account_Type, Account_Init = :Account_Init, Account_Balance = :Account_Balance, Client_ID = :Client_ID WHERE Account_ID = :Account_ID');
 
         return $statement->execute([
             'Account_ID' => $account->getAccountId(),
