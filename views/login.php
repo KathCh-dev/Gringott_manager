@@ -8,6 +8,7 @@
         <link href="/style.css" rel="stylesheet">
     </head>
 
+
     <body>
         <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container-fluid">
@@ -39,7 +40,7 @@
             </form>
             
         </main>
-               
+
         <footer>
             <div class="card" style="background-color: #31353c;">
                 <img src="images/Gringott-seal.png" alt="cachet en cire de Gringott" width="150" height="150" >

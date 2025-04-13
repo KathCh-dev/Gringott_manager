@@ -1,3 +1,4 @@
 # Gringott_manager
 
-admin1234
+DUMBELDORE Albus
+SorbetCitron
