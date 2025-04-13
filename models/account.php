@@ -54,12 +54,12 @@ class Account
 
    public function setAccountRib(string $accountRib)
    {
-        $this->accountRib = $accountRib;
+        $this->accountRib = htmlspecialchars($accountRib);
    }
 
    public function setAccountType(string $accountType)
    {
-        $this->accountType = $accountType;
+        $this->accountType = htmlspecialchars($accountType);
    }
 
    public function setAccountInit(float $accountInit)

@@ -1,17 +1,30 @@
 <?php
-require_once __DIR__ . '/views/templates/header.php';
+
+session_start();
+
 require_once __DIR__ . '/controlers/clientController.php';
 require_once __DIR__ . '/controlers/homeController.php';
 require_once __DIR__ . '/controlers/accountController.php';
+require_once __DIR__ . '/controlers/authController.php';
 
 $clientController = new ClientController();
 $homeController = new HomeController();
 $accountController = new AccountController();
+$authController = new AuthController();
 
-$action = $_GET['action'] ?? 'viewHome';
+$action = $_GET['action'] ?? 'login';
 $id = $_GET['id'] ?? null;
 
 switch($action){
+    case 'logout';
+        $authController->logout();
+        break;
+    case 'doLogin';
+        $authController->doLogin();
+        break;
+    case 'login';
+        $authController->login();
+        break;
     case 'viewHome':
         $homeController->home();
         break;
@@ -62,5 +75,3 @@ switch($action){
         break;
 
 }
-
-require_once __DIR__ . '/views/templates/footer.php';

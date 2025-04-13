@@ -51,25 +51,25 @@ class Client
 
     public function setClientName(string $clientName): void
     {
-        $this->clientName = $clientName;
+        $this->clientName = htmlspecialchars($clientName);
     }
 
     public function setClientLastName(string $clientLastName): void
     {
-        $this->clientLastName = $clientLastName;
+        $this->clientLastName = htmlspecialchars($clientLastName);
     }
 
     public function setClientMail(string $clientMail): void
     {
-        $this->clientMail = $clientMail;
+        $this->clientMail = htmlspecialchars($clientMail);
     }
     public function setClientAddress(string $clientAddress): void
     {
-        $this->clientAddress = $clientAddress;
+        $this->clientAddress = htmlspecialchars($clientAddress);
     }
     public function setClientPhone(string $clientPhone): void
     {
-        $this->clientPhone = $clientPhone;
+        $this->clientPhone = htmlspecialchars($clientPhone);
     }
 
 }

@@ -11,7 +11,7 @@
     <body>
         <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="?">
+                <a class="navbar-brand" href="?action=viewHome">
                     <img src="images/logo-Gringott.png" alt="Logo de la banque Gringott." width="150" height="150" class="d-inline-block align-text-top" id="logo-gringott">
                 </a>
                 <div class="" id="navbarNav">
